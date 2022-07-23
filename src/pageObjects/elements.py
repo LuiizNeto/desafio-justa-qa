@@ -12,14 +12,44 @@ def get_input_passwd(driver):
 def get_bt_add_card(driver):
     return driver.find_element(By.NAME, "Submit")
 
+def get_input_address(driver):
+    return driver.find_element(By.NAME, "address1")
 
-# Página -> http://automationpractice.com/index.php?controller=order
+def get_input_address_number(driver):
+    return driver.find_element(By.NAME, "address2")
 
+def get_input_city(driver):
+    return driver.find_element(By.NAME, "city")
 
-# Página -> http://automationpractice.com/index.php?controller=order&step=1
+def get_input_state(driver):
+    return driver.find_element(By.NAME, "id_state")
 
+def get_input_postal_code(driver):
+    return driver.find_element(By.NAME, "postcode")
 
-# Página -> http://automationpractice.com/index.php?controller=address&back=order.php%3Fstep%3D1&id_address=719519
+def get_input_home_phone(driver):
+    return driver.find_element(By.NAME, "phone")
 
+def get_input_phone(driver):
+    return driver.find_element(By.NAME, "phone_mobile")
 
-# Página -> http://automationpractice.com/index.php?fc=module&module=cheque&controller=payment
+def get_input_information(driver):
+    return driver.find_element(By.NAME, "other") 
+
+def get_input_email(driver):
+    return driver.find_element(By.NAME, "alias")
+
+def get_bt_save(driver):
+    return driver.find_element(By.NAME, "submitAddress")
+
+def get_bt_process_address(driver): 
+    return driver.find_element(By.NAME, "processAddress")
+
+def get_submit_checkbox(driver):
+    return driver.find_element(By.NAME, "cgv")
+
+def get_bt_proceed(driver):
+    return driver.find_element(By.NAME, "processCarrier")
+
+def get_bt_process_address(driver):
+    return driver.find_element(By.NAME, "processAddress")

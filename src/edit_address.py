@@ -1,61 +1,57 @@
 from selenium.webdriver.common.by import By
 from time import sleep
+from pageObjects.elements import get_input_address
+from pageObjects.elements import get_input_address_number
+from pageObjects.elements import get_input_city
+from pageObjects.elements import get_input_state
+from pageObjects.elements import get_input_postal_code
+from pageObjects.elements import get_input_home_phone
+from pageObjects.elements import get_input_phone
+from pageObjects.elements import get_input_information
+from pageObjects.elements import get_input_email
+from pageObjects.elements import get_bt_save
+from pageObjects.elements import get_bt_process_address
 
 def edit(driver, time_sleep):
     driver.get("http://automationpractice.com/index.php?controller=order&step=1")
     sleep(time_sleep)
     driver.get("http://automationpractice.com/index.php?controller=address&id_address=723017")
     sleep(time_sleep)
-    input_address = driver.find_element(By.NAME, "address1")
-    input_address.clear()
-    input_address.send_keys("Rua Itaberaba")
+    get_input_address(driver).clear().send_keys("Rua Itaberaba")
+    get_input_address_number(driver).clear().send_keys("70")
+    get_input_city(driver).clear().send_keys("Salvador")
 
-    input_address2 = driver.find_element(By.NAME, "address2")
-    input_address2.clear()
-    input_address2.send_keys("70")
-
-    input_city = driver.find_element(By.NAME, "city")
-    input_city.clear()
-    input_city.send_keys("Salvador")
-
-    input_state = driver.find_element(By.NAME, "id_state")
-    for option in input_state.find_elements(By.TAG_NAME, "option"):
+    for option in get_input_state(driver):
         if option.text == "Florida":
-            option.click() 
+            option.click()
             break
 
-    input_postal_code = driver.find_element(By.NAME, "postcode")
+    input_postal_code = get_input_postal_code(driver)
     input_postal_code.clear()
     input_postal_code.send_keys("00016")
     sleep(time_sleep)
 
-    input_home_phone = driver.find_element(By.NAME, "phone")
+    input_home_phone = get_input_home_phone(driver)
     input_home_phone.clear()
     input_home_phone.send_keys("34426014")
     sleep(time_sleep)
 
-    input_phone = driver.find_element(By.NAME, "phone_mobile")
+    input_phone = get_input_phone(driver)
     input_phone.clear()
     input_phone.send_keys("81991485511")
     sleep(time_sleep)
 
-    input_information = driver.find_element(By.NAME, "other")
-    input_information.clear()
-    input_information.send_keys("Desafio Justa!")
+    get_input_information(driver).clear().send_keys("Desafio Justa!")
     sleep(time_sleep)
 
-    input_email = driver.find_element(By.NAME, "alias")
-    input_email.clear()
-    input_email.send_keys("luiznelson150@outlook.com")
+    get_input_email(driver).clear().send_keys("luiznelson150@outlook.com")
     sleep(time_sleep)
 
-    bt_save = driver.find_element(By.NAME, "submitAddress")
-    bt_save.click()
+    get_bt_save(driver).click()
     sleep(time_sleep)
 
     driver.get("http://automationpractice.com/index.php?controller=order&step=1")
     sleep(time_sleep)
     
-    bt_process_address = driver.find_element(By.NAME, "processAddress")
-    bt_process_address.click()
+    get_bt_process_address(driver).click()
     sleep(time_sleep)
