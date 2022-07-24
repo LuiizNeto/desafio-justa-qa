@@ -11,7 +11,7 @@ time_sleep = 2
 def test_1():
     login(driver, time_sleep)
     add(driver, time_sleep)
-    edit(driver, time_sleep)
+    edit(driver, time_sleep, True)
     payment(driver, time_sleep)
 
 

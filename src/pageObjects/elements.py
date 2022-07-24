@@ -22,7 +22,7 @@ def get_input_city(driver):
     return driver.find_element(By.NAME, "city")
 
 def get_input_state(driver):
-    return driver.find_element(By.NAME, "id_state")
+    return driver.find_elements(By.NAME, "id_state")
 
 def get_input_postal_code(driver):
     return driver.find_element(By.NAME, "postcode")
@@ -53,3 +53,6 @@ def get_bt_proceed(driver):
 
 def get_bt_process_address(driver):
     return driver.find_element(By.NAME, "processAddress")
+
+def get_bt_confirm(driver):
+    return driver.find_element(By.CSS_SELECTOR, "#cart_navigation > button")
